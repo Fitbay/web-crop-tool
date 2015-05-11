@@ -1,0 +1,24 @@
+{
+  "name": "web-crop-tool",
+  "version": "0.1.0",
+  "authors": [
+    "Michael Storgaard <git@mex.io>"
+  ],
+  "main": "CropTool.js",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/fitbay/web-crop-tool",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "marionette": "~2.2.0"
+  }
+}

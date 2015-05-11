@@ -1,0 +1,125 @@
+#tracker {
+    position: absolute;
+    box-sizing: border-box;
+    border: 1px dotted #bcbcbc;
+    cursor: all-scroll;
+
+    .vert-grid {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: .5;
+
+        &:after {
+            content: "";
+            position: absolute;
+            left: 33.33333333%;
+            top: 0;
+            height: 100%;
+            width: 0px;
+            border-right: 1px dotted #fff;
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            left: 66.66666666%;
+            top: 0;
+            height: 100%;
+            width: 0px;
+            border-right: 1px dotted #fff;
+        }
+
+    }
+    .horiz-grid {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: .5;
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 33.33333333%;
+            left: 0;
+            width: 100%;
+            height: 0px;
+            border-bottom: 1px dotted #fff;
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            top: 66.66666666%;
+            left: 0;
+            width: 100%;
+            height: 0px;
+            border-bottom: 1px dotted #fff;
+        }
+
+    }
+    &.hide {
+        display: none;
+    }
+    .dot {
+        @dot-size: 10px;
+        @dot-offset: -(@dot-size / 2);
+        position: absolute;
+        width: @dot-size;
+        height: @dot-size;
+        border-radius: 50%;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+
+        &.ext-nw {
+            top: @dot-offset;
+            left: @dot-offset;
+            cursor: nwse-resize;
+        }
+        &.ext-ne {
+            top: @dot-offset;
+            right: @dot-offset;
+            cursor: nesw-resize;
+        }
+        &.ext-se {
+            bottom: @dot-offset;
+            right: @dot-offset;
+            cursor: nwse-resize;
+        }
+        &.ext-sw {
+            bottom: @dot-offset;
+            left: @dot-offset;
+            cursor: nesw-resize;
+        }
+    }
+}
+.big-dots {
+    #tracker {
+        .dot {
+            @dot-size: 20px;
+            width: @dot-size;
+            height: @dot-size;
+            @dot-offset: -(@dot-size / 2);
+            &.ext-nw {
+                top: @dot-offset;
+                left: @dot-offset;
+            }
+            &.ext-ne {
+                top: @dot-offset;
+                right: @dot-offset;
+            }
+            &.ext-se {
+                bottom: @dot-offset;
+                right: @dot-offset;
+            }
+            &.ext-sw {
+                bottom: @dot-offset;
+                left: @dot-offset;
+            }
+        }
+    }
+}
