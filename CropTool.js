@@ -524,6 +524,33 @@ define([
             else if (height + top >= this.fullHeight) {
                 top = this.fullHeight - height;
             }
+            //Ensure cropped image stays on ratio
+            if (this.ratio) {
+                var i = 0;
+                //Check for exact ratio matches, but only allow up to 4 loops
+                while ((width / this.ratio !== height || height * this.ratio !== width) && i < 4) {
+                    //Get width and height from opposite dimensions via ratio
+                    var newWidth = height * this.ratio,
+                        newHeight = width / this.ratio;
+
+                    if (newWidth % 1 === 0) {
+                        //Initial height provides usuable width from ratio
+                        width = newWidth;
+                        height = newWidth / this.ratio;
+                    }
+                    else if (newHeight % 1 === 0) {
+                        //Initial width provides usuable height from ratio
+                        width = newHeight * this.ratio;
+                        height = newHeight;
+                    }
+                    else {
+                        //Try to decrease each dimension to match ratio
+                        width -= 1;
+                        height -= 1;
+                    }
+                    i++;
+                }
+            }
 
             return {
                 left: left,
