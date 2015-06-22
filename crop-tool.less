@@ -101,9 +101,10 @@
     #tracker {
         .dot {
             @dot-size: 20px;
+            @dot-offset: -(@dot-size / 2);
             width: @dot-size;
             height: @dot-size;
-            @dot-offset: -(@dot-size / 2);
+
             &.ext-nw {
                 top: @dot-offset;
                 left: @dot-offset;
@@ -119,6 +120,35 @@
             &.ext-sw {
                 bottom: @dot-offset;
                 left: @dot-offset;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 767px) {
+    .big-dots {
+        #tracker {
+            .dot {
+                @dot-size: 40px;
+                @dot-offset: -(@dot-size / 2);
+                width: @dot-size;
+                height: @dot-size;
+
+                &.ext-nw {
+                    top: @dot-offset;
+                    left: @dot-offset;
+                }
+                &.ext-ne {
+                    top: @dot-offset;
+                    right: @dot-offset;
+                }
+                &.ext-se {
+                    bottom: @dot-offset;
+                    right: @dot-offset;
+                }
+                &.ext-sw {
+                    bottom: @dot-offset;
+                    left: @dot-offset;
+                }
             }
         }
     }
