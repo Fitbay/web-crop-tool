@@ -8,7 +8,7 @@ define([
     var MINIMUM_CROP_WIDTH = 250,
         MINIMUM_CROP_HEIGHT = 250;
 
-    var CropTool = Marionette.Controller.extend({
+    var CropTool = Marionette.Object.extend({
 
         /**
          *  Options:
