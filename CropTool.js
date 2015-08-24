@@ -82,7 +82,9 @@ define([
                 else {
                     //If image not loaded, wait for load
                     this.image.load($.proxy(function () {
-                        this._doInitialize();
+                        setTimeout($.proxy(function () {
+                            this._doInitialize();
+                        }, this), 10);
                     }, this));
                 }
             }
